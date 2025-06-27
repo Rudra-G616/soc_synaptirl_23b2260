@@ -14,9 +14,15 @@ class SpikingNeuron(nn.Module):
         super(SpikingNeuron, self).__init__()
         self.threshold = threshold
         self.leak = leak
-        self.mem_potential = 0
+        self.reset_state()
+        
+    def reset_state(self):
+        self.mem_potential = None
         
     def forward(self, x):
+        if self.mem_potential is None:
+            self.mem_potential = torch.zeros_like(x)
+        
         self.mem_potential = self.leak * self.mem_potential + x
         spike = (self.mem_potential >= self.threshold).float()
         self.mem_potential = self.mem_potential * (1 - spike)
@@ -34,6 +40,10 @@ class SNN(nn.Module):
     def forward(self, x, time_steps=10):
         batch_size = x.size(0)
         x = x.view(batch_size, -1)
+        
+        # Reset states for all spiking neurons
+        self.sn1.reset_state()
+        self.sn2.reset_state()
         
         outputs = torch.zeros(time_steps, batch_size, 1).to(x.device)
         

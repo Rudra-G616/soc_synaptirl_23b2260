@@ -48,6 +48,14 @@ During this process, I learned about the two-level optimization process in MAML,
 ### Objective 3
 I implemented a standard Q-learning agent to solve maze navigation tasks and compared its performance with the MAML approach. I created a comprehensive maze environment with random maze generation capabilities and developed a Q-learning agent with state discretization techniques to handle the continuous state space. I conducted extensive comparative experiments, evaluating both approaches across multiple randomly generated maze configurations and visualizing the learning process through performance metrics and maze rendering.
 
+Below are visualizations of the Q-learning agent navigating different maze configurations:
+
+![Q-Learning Maze 1](week_4/q_learning_maze_1.png)
+![Q-Learning Maze 2](week_4/q_learning_maze_2.png)
+![Q-Learning Maze 3](week_4/q_learning_maze_3.png)
+![Q-Learning Maze 4](week_4/q_learning_maze_4.png)
+![Q-Learning Maze 5](week_4/q_learning_maze_5.png)
+
 During this process, I learned about the fundamental differences between meta-learning and traditional reinforcement learning approaches, particularly in terms of adaptation speed and transfer learning capabilities. I gained experience with state representation techniques for reinforcement learning, implementing discretization methods for continuous state spaces, and epsilon-greedy exploration strategies with decay mechanisms. I developed skills in comprehensive performance evaluation, creating visualizations of learning curves for rewards, success rates, and steps per episode, and conducting controlled experiments to compare algorithm performance across different problem instances.
 
 ## Week 5
@@ -69,6 +77,10 @@ I implemented key components of the policy gradient algorithm including:
 5. Neural network weight updates via backpropagation
 
 During the training process, I monitored the agent's learning progress by tracking episode rewards and visualizing the learning curve. The agent successfully learned to balance the pole on the cart, achieving high rewards within a relatively small number of training episodes. I also implemented an evaluation function that uses the trained policy in a deterministic manner (selecting the highest probability action) to demonstrate the final performance.
+
+Below is the learning curve showing the agent's improvement over training episodes:
+
+![Policy Gradient Learning Curve](Assignment/policy_gradient_learning_curve.png)
 
 This assignment allowed me to apply my understanding of policy gradient methods to a concrete reinforcement learning problem, reinforcing the theoretical concepts learned throughout the project with practical implementation experience.
 
